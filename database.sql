@@ -7,8 +7,10 @@
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+    "password" VARCHAR (1000) NOT NULL,
+    "customer_name" VARCHAR (1000) NOT NULL
 );
+
 CREATE TABLE "meat" (
 	"id" SERIAL PRIMARY KEY,
 	"type" VARCHAR (80) NOT NULL, 
@@ -16,11 +18,22 @@ CREATE TABLE "meat" (
 	"description" TEXT NOT NULL,
 	"image_url" VARCHAR (3000)
 );
+
 CREATE TABLE "orders" (
 	"id" SERIAL PRIMARY KEY,
-	"customer_name" VARCHAR (1000) NOT NULL,
 	"sum_total" NUMERIC (20, 2) NOT NULL,
 	"user_id" INT REFERENCES "user" NOT NULL,
 	"completion_status" BOOLEAN DEFAULT FALSE,
 	"date" TIMESTAMP DEFAULT NOW() NOT NULL
 );
+
+CREATE TABLE "line_items" (
+	"id" SERIAL PRIMARY KEY,
+	"order_id" INT REFERENCES "orders" ON DELETE CASCADE,
+	"meat_id" INT REFERENCES "meat",
+	"quantity" INT NOT NULL
+);
+
+
+
+
