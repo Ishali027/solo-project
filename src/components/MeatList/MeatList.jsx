@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from 'react';
+import meatReducer from "../../redux/reducers/meat.reducer";
 
 function MeatList() {
 
@@ -18,6 +19,10 @@ function MeatList() {
             <p>
                 <i>Showing 1-8 of 8 results</i>
             </p>
+
+            {/* {meatList.map((meat) => (
+                
+            ))} */}
         </>
 
     )
