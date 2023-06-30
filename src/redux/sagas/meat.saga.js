@@ -7,7 +7,7 @@ function* fetchMeats() {
 
     try {
         const itemResponse = yield axios.get('/api/meat')
-        yield put ({type: 'SET_ITEM', payload: itemResponse.data});
+        yield put ({type: 'SET_MEAT', payload: itemResponse.data});
         console.log('itemresponse data is:', itemResponse.data);
     }
     catch (error) {
