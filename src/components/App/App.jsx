@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import MeatList from '../MeatList/MeatList';
+import Cart from '../Cart/Cart';
 
 import './App.css';
 
@@ -75,6 +76,14 @@ function App() {
           >
             <MeatList />
           </ProtectedRoute>
+
+          <ProtectedRoute
+          exact 
+          path="/cart"
+          >
+            <Cart />
+          </ProtectedRoute>  
+
 
           <Route
             exact

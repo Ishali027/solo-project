@@ -2,10 +2,17 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from 'react';
 import meatReducer from "../../redux/reducers/meat.reducer";
 import MeatListItem from '../MeatListItem/MeatListItem'
+import { useHistory } from 'react-router-dom'
 
 function MeatList() {
 
+    const history = useHistory();
+
+
     const dispatch = useDispatch();
+    const goToCart = () => {
+        history.push('/cart')
+    }
 
     // const addMeatToCart = () => {
     //     dispatch({
@@ -86,13 +93,17 @@ function MeatList() {
                     <MeatListItem
                         key={meat.id}
                         meat={meat}
-
+                        
 
 
                     />
                 )
             })}
             {/* <button onClick={addMeatToCart}>Cart</button> */}
+            
+            <div>
+                <button onClick={goToCart}>Go To Cart</button>
+            </div>
         </>
 
     )

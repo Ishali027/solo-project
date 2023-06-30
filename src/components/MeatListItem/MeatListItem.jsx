@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom'
 
 
 function MeatListItem({meat}) {
 
-    let [quantity, setQuantity] = useState(0)
+
+    let [quantity, setQuantity] = useState(0);
+
+    
 
 	// const handleChange = (event, property) => {
 	// 	console.log(event, property);
@@ -42,7 +46,7 @@ function MeatListItem({meat}) {
         setQuantity(quantity - 1)
     }
     const addToCart = () =>{
-        const added = {meat: meat.type, quantity: quantity}
+        const added = {meat: meat.type, quantity: quantity , image_url: meat.image_url}
         console.log( added);
         setQuantity(0)
         dispatch({type: 'UPDATE_CART', payload: added})
@@ -50,6 +54,8 @@ function MeatListItem({meat}) {
         // dispatch({type:'', payload: {meat: meat.type, quantity: quantity}})
 
     }
+
+    
     
     
 
@@ -78,7 +84,10 @@ function MeatListItem({meat}) {
             <br />
             
             </form>
+            <br />
+            
         </div>
+
         
         
         </>

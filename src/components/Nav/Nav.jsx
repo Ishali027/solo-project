@@ -32,6 +32,10 @@ function Nav() {
               Shop 
             </Link>
 
+            <Link className="navLink" to="/cart">
+              Cart
+            </Link>
+
             <Link className="navLink" to="/info">
               Info Page
             </Link>
