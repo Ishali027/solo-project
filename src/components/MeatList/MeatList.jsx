@@ -7,15 +7,15 @@ function MeatList() {
 
     const dispatch = useDispatch();
 
-    const addMeatToCart = () => {
-        dispatch({
-            type: 'UPDATE_CART',
-            payload: {
-                ...meat, 
-                quantity, 
-            }
-        })
-    }
+    // const addMeatToCart = () => {
+    //     dispatch({
+    //         type: 'UPDATE_CART',
+    //         payload: {
+    //             ...meat,
+    //             quantity,
+    //         }
+    //     })
+    // }
 
     useEffect(() => {
         dispatch({ type: 'FETCH_MEATS' })
@@ -23,28 +23,28 @@ function MeatList() {
 
     const meatList = useSelector(store => store.meatReducer);
     // const [quantity, setQuantity] = useState(0)
-     
+
     const [quantity, setQuantity] = useState({
-		goat: 0,
-		phillySteak: 0,
-		steak: 0,
-		suqaar: 0,
-		shishiid: 0,
-		tBone: 0,
-		chickenSuqaar: 0,
-     chickenKutuleeti:0
-	});
-    console.log('quantity',quantity)
+        goat: 0,
+        phillySteak: 0,
+        steak: 0,
+        suqaar: 0,
+        shishiid: 0,
+        tBone: 0,
+        chickenSuqaar: 0,
+        chickenKutuleeti: 0
+    });
+    console.log('quantity', quantity)
 
     // const handleChange = (event, property) => {
-	// 	console.log(event, property);
-	// 	//Similar to in redux -- we dont want to get rid of the id field when we update name
-	// 	setMeatQuantity({ ...meatQuantity, [property]: event.target.value });
-	// };
+    // 	console.log(event, property);
+    // 	//Similar to in redux -- we dont want to get rid of the id field when we update name
+    // 	setMeatQuantity({ ...meatQuantity, [property]: event.target.value });
+    // };
 
     // const [quantity, setQuantity] =useState(0);
-    
-    
+
+
     // const increaseQuantity = ()=> {
     //     setQuantity(quantity + 1)
     // }
@@ -64,35 +64,35 @@ function MeatList() {
             {meatList.map((meat) => {
                 return (
 
-                //     <div>
-                //     <br></br>
-                //     <p>{meat.type}</p>
-                //     <p>{meat.price}</p>
-        
-                //     <img src={meat.image_url} alt="image of the meat"/>
-                //     <br></br>
-        
-                //     <p>{meat.description}</p>
-        
-                //     <form >
-                //     <button onClick={increaseQuantity}> + </button>
-        
-                //     <input type="text" value={quantity} onChange={(event) => handleChange(event, {meat.type})}/>
-                //     <button onClick={decreaseQuantity}> - </button>
-                //     <br />
-                    
-                //     </form>
-                // </div>
-                    <MeatListItem 
-                    key={meat.id} 
-                    meat={meat}
+                    //     <div>
+                    //     <br></br>
+                    //     <p>{meat.type}</p>
+                    //     <p>{meat.price}</p>
 
-                    
+                    //     <img src={meat.image_url} alt="image of the meat"/>
+                    //     <br></br>
+
+                    //     <p>{meat.description}</p>
+
+                    //     <form >
+                    //     <button onClick={increaseQuantity}> + </button>
+
+                    //     <input type="text" value={quantity} onChange={(event) => handleChange(event, {meat.type})}/>
+                    //     <button onClick={decreaseQuantity}> - </button>
+                    //     <br />
+
+                    //     </form>
+                    // </div>
+                    <MeatListItem
+                        key={meat.id}
+                        meat={meat}
+
+
 
                     />
                 )
             })}
-            <button onClick={addMeatToCart}>Cart</button>
+            {/* <button onClick={addMeatToCart}>Cart</button> */}
         </>
 
     )
