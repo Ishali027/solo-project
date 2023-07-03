@@ -14,22 +14,13 @@ function MeatList() {
         history.push('/cart')
     }
 
-    // const addMeatToCart = () => {
-    //     dispatch({
-    //         type: 'UPDATE_CART',
-    //         payload: {
-    //             ...meat,
-    //             quantity,
-    //         }
-    //     })
-    // }
+
 
     useEffect(() => {
         dispatch({ type: 'FETCH_MEATS' })
     }, []);
 
     const meatList = useSelector(store => store.meatReducer);
-    // const [quantity, setQuantity] = useState(0)
 
     const [quantity, setQuantity] = useState({
         goat: 0,
@@ -43,22 +34,7 @@ function MeatList() {
     });
     console.log('quantity', quantity)
 
-    // const handleChange = (event, property) => {
-    // 	console.log(event, property);
-    // 	//Similar to in redux -- we dont want to get rid of the id field when we update name
-    // 	setMeatQuantity({ ...meatQuantity, [property]: event.target.value });
-    // };
-
-    // const [quantity, setQuantity] =useState(0);
-
-
-    // const increaseQuantity = ()=> {
-    //     setQuantity(quantity + 1)
-    // }
-
-    // const decreaseQuantity = ()=> {
-    //     setQuantity(quantity - 1)
-    // }
+    
 
 
     return (
@@ -71,25 +47,6 @@ function MeatList() {
             {meatList.map((meat) => {
                 return (
 
-                    //     <div>
-                    //     <br></br>
-                    //     <p>{meat.type}</p>
-                    //     <p>{meat.price}</p>
-
-                    //     <img src={meat.image_url} alt="image of the meat"/>
-                    //     <br></br>
-
-                    //     <p>{meat.description}</p>
-
-                    //     <form >
-                    //     <button onClick={increaseQuantity}> + </button>
-
-                    //     <input type="text" value={quantity} onChange={(event) => handleChange(event, {meat.type})}/>
-                    //     <button onClick={decreaseQuantity}> - </button>
-                    //     <br />
-
-                    //     </form>
-                    // </div>
                     <MeatListItem
                         key={meat.id}
                         meat={meat}
@@ -99,7 +56,6 @@ function MeatList() {
                     />
                 )
             })}
-            {/* <button onClick={addMeatToCart}>Cart</button> */}
             
             <div>
                 <button onClick={goToCart}>Go To Cart</button>

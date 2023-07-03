@@ -10,27 +10,7 @@ function MeatListItem({meat}) {
 
     
 
-	// const handleChange = (event, property) => {
-	// 	console.log(event, property);
-	// 	//Similar to in redux -- we dont want to get rid of the id field when we update name
-	// 	setMeatQuantity({ ...meatQuantity, [property]: event.target.value });
-	// };
 
-	// const addToCart = (event) => {
-	// 	event.preventDefault();
-    //     console.log(meatQuantity);
-	// 	dispatch({ type: "", payload: meatQuantity });
-    //     setMeatQuantity({	goat: "",
-	// 	phillySteak: "",
-	// 	steak: "",
-	// 	suqaar: "",
-	// 	shishiid: "",
-	// 	tBone: "",
-	// 	chickenSuqaar: "",
-    //     chickenKutuleeti:''})
-        
-	// 	//updates the next plant to have a new id
-	// };
 
 
 
@@ -51,7 +31,6 @@ function MeatListItem({meat}) {
         setQuantity(0)
         dispatch({type: 'UPDATE_CART', payload: added})
 
-        // dispatch({type:'', payload: {meat: meat.type, quantity: quantity}})
 
     }
 

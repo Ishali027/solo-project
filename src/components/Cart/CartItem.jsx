@@ -1,30 +1,21 @@
-import { useDispatch } from "react-redux"
 import { useState, useEffect } from 'react';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from 'axios';
 
 function CartItem({ item }) {
-    const dispatch = useDispatch();
-    const subTotal = Number(item.price) * Number(item.quantity);
 
-    // total = 0
-   // Nummber(item.price) * Number(item.quantity) = total
+const [subTotal, setSubTotal] = useState(Number(item.price) * Number(item.quantity))
+    // const subTotal = Number(item.price) * Number(item.quantity);
 
-    const clearCart = () => {
-        dispatch({type: 'CLEAR_CART'})
-    }
+    
+    
 
-    // let total = 0;
-    // const handleTotal = () => {
-    //     let sum = 0;
-    //     {
-    //         cart.map((item, i) => {
-    //             sum += item.price / 1
-    //         })
-    //     }
-    //     total += sum;
-    //     setTotaldisplay(total);
-    // }
+
+// useEffect(() => {
+//     setSubTotal(Number(item.price) * Number(item.quantity))
+
+// }, [])
+    
 
 
     return (
@@ -32,7 +23,7 @@ function CartItem({ item }) {
         <div>
 
         <div>
-            {/* <p>${item.price}</p> */}
+            <p> ${item.price} per pound</p>
             <b>
             <p>{item.item}</p>
             </b>
@@ -40,15 +31,14 @@ function CartItem({ item }) {
         </div>
         
 
-        <div><button onClick={clearCart} className="btn">CLEAR</button></div>
 
         
         
         </div>
         <div>
-        <h2>
-            Total: {subTotal}
-        </h2>
+        <h3>
+            Subtotal: ${subTotal}
+        </h3>
         </div>
         </>
     )
