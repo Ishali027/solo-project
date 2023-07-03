@@ -46,7 +46,7 @@ function MeatListItem({meat}) {
         setQuantity(quantity - 1)
     }
     const addToCart = () =>{
-        const added = {meat: meat.type, quantity: quantity , image_url: meat.image_url}
+        const added = {meat: meat.type, quantity: quantity , image_url: meat.image_url, price: meat.price}
         console.log( added);
         setQuantity(0)
         dispatch({type: 'UPDATE_CART', payload: added})
@@ -55,7 +55,9 @@ function MeatListItem({meat}) {
 
     }
 
-    
+
+
+
     
     
 
