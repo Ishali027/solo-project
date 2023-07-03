@@ -2,7 +2,7 @@ import  { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import MeatListItem from '../MeatListItem/MeatListItem';
 import CartItem from './CartItem';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import {useState} from 'react';
 
@@ -19,6 +19,20 @@ function Cart() {
     const clearCart = () => {
         dispatch({type: 'CLEAR_CART'})
     }
+
+   useEffect(() => {
+    dispatch({
+        type: 'UPDATE_GRANDTOTAL',
+        payload: {
+            grandTotal,
+        }
+    })
+   },[]);
+
+   
+
+
+
 
     console.log(cartList);
     return (
@@ -37,7 +51,6 @@ function Cart() {
                 
             ))}
             <h1>Grand Total:  ${grandTotal}</h1>
-           
         </div>
 
         <div>

@@ -9,12 +9,19 @@ const [subTotal, setSubTotal] = useState(Number(item.price) * Number(item.quanti
 
     
     
-
+    // const addTotalToCart = () => {
+    //     dispatch({
+    //         type: 'UPDATE_SUBTOTAL',
+    //         payload: {
+    //             subTotal,
+    //         }
+            
+    //     })
+    // }
 
 // useEffect(() => {
-//     setSubTotal(Number(item.price) * Number(item.quantity))
-
-// }, [])
+//     addTotalToCart
+// }, [subTotal])
     
 
 
