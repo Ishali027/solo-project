@@ -20,6 +20,9 @@ function Cart() {
     const clearCart = () => {
         dispatch({ type: 'CLEAR_CART' })
     }
+    const receipt = () => {
+        
+    }
 
     useEffect(() => {
         dispatch({
@@ -30,14 +33,21 @@ function Cart() {
         })
     }, []);
 
+
     const checkout = () => {
-        
-    }
+        let meatArray = [];
+        cartList.map(meat => (
+            meatArray.push({
+                id: meat.id,
+                quantity: meat.quantity
+            })
+        ))
+        dispatch({ type: 'POST_ORDERS', payload: { meats: meatArray, total: grandTotal } })
 
-
-
-
+    };
     console.log(cartList);
+
+
     return (
         <>
             <h1>Your Cart</h1>
@@ -58,6 +68,10 @@ function Cart() {
 
             <div>
                 <button onClick={clearCart} className="btn">CLEAR</button>
+            </div>
+                    <br />
+            <div>
+                <button className="btn" onClick={checkout}>CHECKOUT</button>
             </div>
 
 

@@ -3,10 +3,10 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 
 
-function* postOrder() {
+function* postOrder(action) {
     try{
         console.log(action.payload);
-        yield axios.post('/api/order', action.payload)
+        yield axios.post('/api/orders', action.payload)
         yield put({type: 'FETCH_MEATS'})
         console.log(action.payload);
 
