@@ -29,7 +29,11 @@ function Nav() {
             </Link>
 
             <Link className="navLink" to="/list">
-              Store
+              Shop 
+            </Link>
+
+            <Link className="navLink" to="/cart">
+              Cart
             </Link>
 
             <Link className="navLink" to="/info">

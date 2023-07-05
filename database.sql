@@ -21,7 +21,7 @@ CREATE TABLE "meat" (
 
 CREATE TABLE "orders" (
 	"id" SERIAL PRIMARY KEY,
-	"sum_total" NUMERIC (20, 2) NOT NULL,
+	"total" NUMERIC (20, 2) NOT NULL,
 	"user_id" INT REFERENCES "user" NOT NULL,
 	"completion_status" BOOLEAN DEFAULT FALSE,
 	"date" TIMESTAMP DEFAULT NOW() NOT NULL
