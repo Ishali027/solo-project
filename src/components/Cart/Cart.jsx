@@ -11,7 +11,8 @@ function Cart() {
 
     const cartList = useSelector(store => store.cart);
     const history = useHistory();
-    const grandTotal = useMemo(() => cartList.reduce((accum, item) => accum + Number(item.price).toFixed(2) * Number(item.quantity), 0), [cartList]);
+    // const grandTotal = (cartList.reduce((accum, item) => accum + Number(item.price).toFixed(2) * Number(item.quantity), 0), [cartList]);
+    const [grandTotal, setGrandTotal] = useState(cartList.reduce((accum, item) => accum + Number(item.price).toFixed(2) * Number(item.quantity), 0), [cartList])
     const dispatch = useDispatch();
     const backButton = () => {
         history.push('/list')
@@ -29,7 +30,9 @@ function Cart() {
         })
     }, []);
 
-
+    const checkout = () => {
+        
+    }
 
 
 

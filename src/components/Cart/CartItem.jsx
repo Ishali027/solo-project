@@ -25,6 +25,7 @@ const [subTotal, setSubTotal] = useState(Number(item.price).toFixed(2) * Number(
     
 
 
+
     return (
         <>
         <div>
