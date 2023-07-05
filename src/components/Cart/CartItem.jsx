@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function CartItem({ item }) {
 
-const [subTotal, setSubTotal] = useState(Number(item.price) * Number(item.quantity))
+const [subTotal, setSubTotal] = useState(Number(item.price).toFixed(2) * Number(item.quantity))
     // const subTotal = Number(item.price) * Number(item.quantity);
 
     
