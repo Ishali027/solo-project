@@ -1,16 +1,10 @@
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 
 
 
-// function Receipt () {
-
-
-
-
-
-
+function Receipt () {
 
 
 
@@ -20,14 +14,20 @@
 
 
 
-//     return (
-//         <>
+
+
+
+
+
+
+    return (
+        <>
         
         
         
-//         </>
-//     )
-// }
+        </>
+    )
+}
 
 
-// export default Receipt;
+export default Receipt;
