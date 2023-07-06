@@ -4,6 +4,7 @@ import user from './user.reducer';
 import meatReducer from './meat.reducer';
 import cart from './cart.reducer'
 import totalReducer from './total.reducer';
+import receiptReducer from './receipt.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   meatReducer,
   cart, 
-  totalReducer
+  totalReducer,
+  receiptReducer
 });
 
 export default rootReducer;
