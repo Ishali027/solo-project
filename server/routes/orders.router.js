@@ -1,13 +1,32 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+    rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
-
-router.get('/', (req, res) => {
-    const sqlText = `SELECT * FROM orders;`;
+router.get('/', rejectUnauthenticated, (req, res) => {
+    const sqlText = `
+    SELECT "user".customer_name, orders.total, meat.type, meat.price, line_items.quantity, line_items.order_id, orders.completion_status FROM "user" JOIN orders ON "user".id = orders.user_id JOIN line_items ON orders.id = line_items.order_id JOIN meat ON line_items.meat_id = meat.id
+GROUP BY "user".customer_name, orders.total, meat.type, meat.price, line_items.quantity, line_items.order_id, orders.completion_status
+ORDER BY "user".customer_name;
+    `;
     pool.query(sqlText)
         .then(result => {
             res.send(result.rows);
+        })
+        .catch(err => {
+            console.log('error GETting orders', err);
+            res.sendStatus(500);
+        })
+
+})
+
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    const sqlText = `DELETE FROM orders WHERE id = $1;`;
+    pool.query(sqlText, [req.params.id])
+        .then(result => {
+            res.sendStatus(200);
         })
         .catch(err => {
             console.log('error GETting orders', err);

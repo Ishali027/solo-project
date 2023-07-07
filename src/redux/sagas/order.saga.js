@@ -8,6 +8,7 @@ function* postOrder(action) {
         console.log(action.payload);
         const receipt = yield axios.post('/api/orders', action.payload)
         yield put({type: 'SET_RECEIPT', payload: receipt.data})
+        yield put({type: 'FETCH_RECEIPT', payload: receipt.data.id})
         yield put({type: 'FETCH_MEATS'})
         console.log(action.payload);
 
@@ -17,12 +18,18 @@ function* postOrder(action) {
 
 }
 
+function* getOrders(action) {
+    try {
+        const orders = yield axios.get('/api/orders')
+        yield put ({type: 'SET_ALL_ORDERS', payload: orders.data})
+    } catch (error){}
+}
 
 
 
 function* postOrderSaga() {
     yield takeLatest( 'POST_ORDERS', postOrder)
-
+    yield takeLatest('GET_ALL_ORDERS', getOrders)
 }
 export default postOrderSaga;
 

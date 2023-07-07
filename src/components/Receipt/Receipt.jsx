@@ -11,50 +11,65 @@ function Receipt() {
     const dispatch = useDispatch();
 
     const receipt = useSelector(store => store.receiptReducer)
-    console.log(receipt);
-
-
-    function getReceipt() {
-        console.log(receipt);
-        dispatch({
-            type: 'FETCH_RECEIPT',
-            payload: receipt.id
-        })
-
-    }
+    const cartList2 = useSelector(store => store.cart);
 
     useEffect(() => {
-
+        
     }, [])
 
     const clearCart2 = () => {
         dispatch({ type: 'CLEAR_CART' })
-    }
+    };
 
 
-
-
-
-
-
-
-
-
-
-
-
+    let clickStatus = false;
+    
 
 
 
 
 
     return (
-        <>
+            <>
+            <button onClick={clearCart2} className="btn" > Make Another Order</button>
+            
 
-            <button className="btn" onClick={() => getReceipt()}>get receipt</button>
-            <button className="btn" onClick={() => clearCart2}>Make Another Order</button>
-        </>
+            
+            
+            {cartList2.map((meat) => {
+                return (
+                <ul>
+                    <li>
+                        {meat.meat}
+                    </li>
+                    <li>
+                        {meat.quantity} 
+                    </li>
+                </ul>
+                )
+            })}
+            
+            
+            <p>
+            
+                Name: {receipt.customer_name}
+            
+                <br />
+            
+                Item Total:{receipt.total} 
+
+                <br />
+                Item(s):{receipt.type}</p>
+
+            
+
+
+            </>
+
     )
+
+
+
 }
 
 
