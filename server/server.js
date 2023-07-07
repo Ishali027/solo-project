@@ -28,7 +28,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/meat', meatRouter);
 app.use('/api/orders', ordersRouter);
-app.use('api/receipt', receiptRouter)
+app.use('/api/receipt', receiptRouter)
 // Serve static files
 app.use(express.static('build'));
 

@@ -6,7 +6,8 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* postOrder(action) {
     try{
         console.log(action.payload);
-        yield axios.post('/api/orders', action.payload)
+        const receipt = yield axios.post('/api/orders', action.payload)
+        yield put({type: 'SET_RECEIPT', payload: receipt.data})
         yield put({type: 'FETCH_MEATS'})
         console.log(action.payload);
 

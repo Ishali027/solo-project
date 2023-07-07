@@ -3,8 +3,11 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 
-router.get('/:id', (req, res) => {
-    const idToGet = req.params.id;
+router.get('/', (req, res) => {
+    console.log('hey');
+    const idToGet = req.query.order_id;
+    console.log('hey 2');
+    console.log(req.user.id);
     const user_id = req.user.id;
     console.log('idToGet', idToGet);
     console.log('user_id', user_id);
@@ -15,9 +18,9 @@ router.get('/:id', (req, res) => {
     WHERE "user".id = $1 AND orders.id = $2;
     `;
     const sqlValues = [user_id, idToGet];
-    pool.query(sqlQuery, sqlValues)
+    pool.query(sqlText, sqlValues)
         .then(result => {
-            res.send(result.rows);
+            res.send(result.rows[0]);
         })
         .catch(error => {
             console.log('error GETting receipt', error);

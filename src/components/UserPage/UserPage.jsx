@@ -19,8 +19,12 @@ function UserPage() {
   return (
     <>
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
+      <h2>Hello {user.customer_name}</h2>
+       <h2>Welcome to African Halal & Deli, Its Nice To Meat You ™️ </h2>
+      <p>Your customer ID is: {user.id}</p>
+      <p>
+      <i>Click on the 'start shopping' button to see what kinds of meat we have!</i>
+      </p>
       <LogOutButton className="btn" />
     </div>
 

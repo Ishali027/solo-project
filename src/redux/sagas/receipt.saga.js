@@ -4,10 +4,10 @@ import { put, takeLatest} from 'redux-saga/effects';
 // this saga is sending a request to get the data of the users purchase
 // when they hit checkout
 
-function* fetchReceipt() {
+function* fetchReceipt(action) {
 
     try {
-        const itemResponse = yield axios.get('/api/receipt')
+        const itemResponse = yield axios.get(`/api/receipt?order_id=${action.payload}`)
         yield put ({type: 'SET_RECEIPT', payload: itemResponse.data});
         console.log('itemResponse data is:', itemResponse.data);
     }

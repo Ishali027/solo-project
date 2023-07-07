@@ -31,7 +31,7 @@ router.post('/', async (req,res) => {
         await client.query('BEGIN')
         const orderInsertResults = await client.query(`INSERT INTO "orders" ("total", "user_id" )
         VALUES ($1, $2)
-        RETURNING id;`, [total, user_id]);
+        RETURNING id, total, user_id;`, [total, user_id]);
         const newOrderId = orderInsertResults.rows[0].id;
 
         await Promise.all(meats.map(meat => {
@@ -42,7 +42,8 @@ router.post('/', async (req,res) => {
         }));
 
         await client.query('COMMIT')
-        res.sendStatus(201);
+        console.log(orderInsertResults);
+        res.send(orderInsertResults.rows[0]);
     } catch(error) {
         await client.query('ROLLBACK')
         console.log('Error POSTing /api/order', error);
