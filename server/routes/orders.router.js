@@ -13,6 +13,7 @@ ORDER BY "user".customer_name;
     `;
     pool.query(sqlText)
         .then(result => {
+            console.log(result)
             res.send(result.rows);
         })
         .catch(err => {
@@ -35,6 +36,20 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 
 })
 
+router.put('/:id', (req, res) => {
+    const idToUpdate = req.params.id
+    const sqlText = `UPDATE orders SET "completion_status" = true
+    WHERE id = $1;`;
+    pool.query(sqlText, [idToUpdate])
+    .then( result => {
+        res.sendStatus(200);
+        console.log('result is', result);
+    })
+    .catch(error => {
+        console.log('error', error);
+        res.sendStatus(500);
+    })
+})
 
 router.post('/', async (req,res) => { 
     const client = await pool.connect();

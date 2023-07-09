@@ -12,6 +12,7 @@ function Receipt() {
 
     const receipt = useSelector(store => store.receiptReducer)
     const cartList2 = useSelector(store => store.cart);
+    const history = useHistory();
 
     useEffect(() => {
         
@@ -19,6 +20,8 @@ function Receipt() {
 
     const clearCart2 = () => {
         dispatch({ type: 'CLEAR_CART' })
+            history.push('/list')
+
     };
 
 
