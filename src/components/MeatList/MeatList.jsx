@@ -3,6 +3,10 @@ import React, { useEffect, useState } from 'react';
 import meatReducer from "../../redux/reducers/meat.reducer";
 import MeatListItem from '../MeatListItem/MeatListItem'
 import { useHistory } from 'react-router-dom'
+import { Button } from "@mui/material";
+import {Grid} from "@mui/material";
+import Typography from '@mui/material/Typography';
+
 
 function MeatList() {
 
@@ -34,32 +38,46 @@ function MeatList() {
     });
     console.log('quantity', quantity)
 
-    
+
 
 
     return (
         <>
-            <h1>Shop</h1>
-            <p>
+        <div style={{display: 'flex', justifyContent: 'center' }}>
+        <Typography
+        gutterBottom
+        variant="h3"
+        component="div"
+        >
+        Shop
+        </Typography>
+
+            
+    
+        </div>
+        <p>
                 <i>Showing 1-8 of 8 results</i>
             </p>
-
+            <Grid container spacing={1}>
             {meatList.map((meat) => {
                 return (
 
                     <MeatListItem
                         key={meat.id}
                         meat={meat}
-                        
+
 
 
                     />
                 )
             })}
             
-            <div>
-                <button onClick={goToCart}>Go To Cart</button>
-            </div>
+            
+
+                
+            </Grid>   
+            < Button sx={{ boxSizing: '', color: 'white', backgroundColor: 'brown', fontSize: '1.2rem', padding: '10px 20px' }} onClick={goToCart}>Go To Cart</Button> 
+            
         </>
 
     )
