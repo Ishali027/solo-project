@@ -7,6 +7,9 @@ import { put, takeLatest} from 'redux-saga/effects';
 function* fetchReceipt(action) {
 
     try {
+        // const itemResponse = yield axios.get(`/api/receipt/orders`)
+
+        //original
         const itemResponse = yield axios.get(`/api/receipt?order_id=${action.payload}`)
         yield put ({type: 'SET_RECEIPT', payload: itemResponse.data});
         console.log('itemResponse data is:', itemResponse.data);

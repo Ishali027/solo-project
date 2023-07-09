@@ -23,10 +23,12 @@ function UserPage() {
        <h2>Welcome to African Halal & Deli, Its Nice To Meat You ™️ </h2>
       <p>Your customer ID is: {user.id}</p>
       <p>
-      <i>Click on the 'start shopping' button to see what kinds of meat we have!</i>
+      <i>Click</i> on the 'start shopping' button to see what kinds of meat we have!
       </p>
       <LogOutButton className="btn" />
     </div>
+
+    
 
     <div>
       <button

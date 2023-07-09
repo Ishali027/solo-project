@@ -11,7 +11,15 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const meatRouter = require('./routes/meat.router');
 const ordersRouter = require('./routes/orders.router')
+
+
+//changed here - original
 const receiptRouter = require('./routes/receipt.router')
+// const receiptRouter = require('./routes/orders/receipt.router')
+
+
+
+
 
 // Body parser middleware
 app.use(bodyParser.json());
