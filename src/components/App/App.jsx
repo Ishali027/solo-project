@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import MeatList from '../MeatList/MeatList';
 import Cart from '../Cart/Cart';
+import Receipt from '../Receipt/Receipt';
 
 import './App.css';
 
@@ -65,7 +66,7 @@ function App() {
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/info"
+            path="/admin"
           >
             <InfoPage />
           </ProtectedRoute>
@@ -83,6 +84,19 @@ function App() {
           >
             <Cart />
           </ProtectedRoute>  
+
+          <ProtectedRoute 
+          exact 
+          path="/receipt"
+          >
+
+            <Receipt />
+          </ProtectedRoute>
+
+
+          
+    
+
 
 
           <Route

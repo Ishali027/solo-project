@@ -21,7 +21,7 @@ function Cart() {
         dispatch({ type: 'CLEAR_CART' })
     }
     const receipt = () => {
-        
+
     }
 
     useEffect(() => {
@@ -43,7 +43,7 @@ function Cart() {
             })
         ))
         dispatch({ type: 'POST_ORDERS', payload: { meats: meatArray, total: grandTotal } })
-
+            history.push('/receipt')
     };
     console.log(cartList);
 

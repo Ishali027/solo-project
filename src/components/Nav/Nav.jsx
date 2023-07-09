@@ -10,7 +10,7 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
+        <h2 className="nav-title">🍖Nice To Meat You!🍖</h2>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
@@ -35,10 +35,15 @@ function Nav() {
             <Link className="navLink" to="/cart">
               Cart
             </Link>
+            {
+              // only display if admin
+              user.role === "admin" && (
+                <Link className="navLink" to="/admin">
+                Admin
+                </Link>
+              )
+            }
 
-            <Link className="navLink" to="/info">
-              Info Page
-            </Link>
 
             <LogOutButton className="navLink" />
           </>
