@@ -1,6 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Button } from "@mui/material";
+import { Card, CardContent, CardMedia, Typography, Box, Container } from "@mui/material";
+import CardActions from '@mui/material/CardActions';
+import {Grid} from "@mui/material";
+
 
 
 
@@ -37,12 +42,15 @@ function Receipt() {
 
     return (
             <>
-            <h2>Thank you for shopping at African Halal & Deli</h2>
-            <i>
-            <h3>Your has been order received and will be ready shortly</h3>
-            </i>
-        <div>
-        <div>
+            {/* <Typography variant="h3" component="div" textAlign="center">
+                Thank you for Shopping at African Halal and Deli
+            </Typography>
+            <Typography variant="h5" component="div" textAlign="center">
+                <i>Your order has been received and will be ready for pick shortly</i>
+            </Typography>
+        
+            <Card>
+                <CardContent>
             <p>
             Customer Name:     {receipt.customer_name}
             </p>
@@ -53,10 +61,7 @@ function Receipt() {
             Item Total:{receipt.total} 
             </p>
 
-        </div>
-            
-            
-
+        
             {cartList2.map((meat) => {
                 return (
                 <ul>
@@ -70,13 +75,72 @@ function Receipt() {
                 </ul>
                 )
             })}
+            </CardContent>
             
-            </div>
 
             <div>
-            <button onClick={clearCart2} className="btn" > Make Another Order</button>
+            <Button sx={{ boxSizing: '', color: 'white', backgroundColor: 'brown', fontSize: '1.2rem', padding: '10px 20px' }} onClick={clearCart2} > Make Another Order</Button>
             </div>
+            </Card>
+            </> */}
+            <Typography variant="h3" component="div" textAlign="center">
+                Thank you for Shopping at African Halal and Deli
+            </Typography>
+            <Typography variant="h5" component="div" textAlign="center">
+                <i>Your order has been received and will be ready for pick shortly</i>
+            </Typography>
 
+            <Card elevation={20} sx={{maxWidth: 800, mx: 70 , my: 5 , justifyContent: "center"}}>
+                <Grid>
+                <CardContent>
+                    
+                    <Typography color="text.secondary" variant="h4" component="div">
+                        Name: {receipt.customer_name}
+                    </Typography>
+
+                    <Typography color="text.secondary" variant="h4" component="div">
+                        Total: ${receipt.total}
+                    </Typography>
+                    </CardContent>
+
+                    <CardContent>
+                    
+                    
+                    {cartList2.map((meat) => (
+                        <CardContent>
+                        
+                            <Typography variant="p" color="text.secondary"><b>{meat.meat} {meat.quantity}lbs</b></Typography>
+                            
+                            {/* <Typography variant="p">{meat.quantity} lbs</Typography> */}
+                        
+                        </CardContent>
+                    ))}
+                    
+                    
+                </CardContent>
+
+                <div>
+                <CardActions>
+                  
+                    </CardActions>
+                </div>
+                </Grid>
+            </Card> 
+            <br />
+             <Button
+                
+                        sx={{
+                            
+                            boxSizing: '',
+                            color: 'white',
+                            backgroundColor: 'brown',
+                            fontSize: '1.2rem',
+                            padding: '10px 20px'
+                        }}
+                        onClick={clearCart2}
+                    >
+                        Make Another Order
+                    </Button>
             </>
 
     )

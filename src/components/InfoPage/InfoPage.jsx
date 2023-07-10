@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 // It doesn't have local state
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is
+import { Card, CardContent, CardMedia, Typography, Box, Container, Button, Grid } from "@mui/material";
+
 
 function InfoPage() {
 const dispatch = useDispatch();
@@ -31,9 +33,15 @@ const ordersList = useSelector(store => store.orderReducer)
   return (
     <>
     <div className="container">
-      <h1>Admin</h1>
-
+      <Typography variant="h2" component="div" textAlign="center">
+        
+          Order List
+        
+      </Typography>
+      <Grid container >
+      <Card sx={{display: "flex", justifyContent: "center", backgroundColor: "brown", color: "white"}}>
       <table>
+        <CardContent sx={{alignContent: "center"}}>
               <thead>
                 <tr>
 
@@ -66,28 +74,31 @@ const ordersList = useSelector(store => store.orderReducer)
                   </th>
                   <br></br>
                   <th>
-                    Complete
+                    
                   </th>
                   <br></br>
                   <th>
-                    Delete
+                    
                   </th>
                 </tr>
               </thead>
+              
               <tbody>
               {
         ordersList.map((order, i ) => (
           <tr key={i}>
-          {/* // Step 1: make this look better
-          // render more columns please */}
-          
-            {/* {JSON.stringify(order)} */}
+        
           <td>
-          {order.customer_name}
+            
+              {order.customer_name}
+          
+          
           </td>
           <br></br>
           <td>
+            
             {order.order_id}
+            
           </td>
           <br></br>
           <td>
@@ -110,27 +121,30 @@ const ordersList = useSelector(store => store.orderReducer)
               {JSON.stringify(order.completion_status)}
           </td>
           <br />
+          <Box>
           <td>
-          <button onClick={() => updateOrder(order.order_id)}>Completed</button>
+          
+          <Button sx={{backgroundColor: "grey", color: "white"}} onClick={() => updateOrder(order.order_id)}>Completed</Button>
 
           </td>
-          <br></br>
 
           <td>
-          <button onClick={() => deleteOrder(order.order_id)}>Delete</button>
+          <Button sx={{backgroundColor: "grey", color: "white"}} onClick={() => deleteOrder(order.order_id)}>Delete</Button>
           </td>
+          </Box>
+          
           
           </tr>
         ))}
      
-        </tbody>
+        </tbody></CardContent>
         </table>
       
      
-
+      </Card></Grid>
     </div>
 
-      
+
     </>
   );
 }

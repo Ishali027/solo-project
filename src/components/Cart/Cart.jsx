@@ -5,6 +5,8 @@ import CartItem from './CartItem';
 import { useEffect, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { Card, CardContent, CardMedia, Typography, Box, Container, Grid } from "@mui/material";
+
 
 
 function Cart() {
@@ -55,19 +57,20 @@ function Cart() {
                 <button onClick={backButton} className="btn">Back To Shopping</button>
             </div>
 
-            <div>
+                <Grid container spacing={1}>
                 {cartList.map(item => (
                     <div>
-                        <h3><img src={item.image_url} alt="" /></h3>
+                        {/* <h3><img src={item.image_url} alt="" /></h3> */}
                         <CartItem item={item} key={item.id} />
                     </div>
 
                 ))}
+                </Grid>
                 <h1>Grand Total:  ${grandTotal}</h1>
-            </div>
+           
 
             <div>
-                <button onClick={clearCart} className="btn">CLEAR</button>
+                <button onClick={clearCart} className="btn">CLEAR CART</button>
             </div>
                     <br />
             <div>

@@ -39,7 +39,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 router.put('/:id', (req, res) => {
     const idToUpdate = req.params.id
     const sqlText = `UPDATE orders SET "completion_status" = true
-    WHERE id = $1;`;
+    WHERE "id" = $1;`;
     pool.query(sqlText, [idToUpdate])
     .then( result => {
         res.sendStatus(200);
