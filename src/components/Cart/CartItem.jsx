@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import axios from 'axios';
+import { Card, CardContent, CardMedia, Typography, Box, Container } from "@mui/material";
+
 
 function CartItem({ item }) {
 
@@ -28,26 +30,28 @@ const [subTotal, setSubTotal] = useState(Number(item.price).toFixed(2) * Number(
 
     return (
         <>
-        <div>
-
-        <div>
-            <p> ${item.price} per pound</p>
-            <b>
-            <p>{item.item}</p>
-            </b>
-            <h3>{item.quantity} (lbs)</h3>
-        </div>
-        
-
-
+        <Card elevation={6} sx={{maxWidth: 500, mx: 2, my: 5}}>
+            <CardContent>
+            <CardMedia component="img" image={item.image_url} sx={{width: 200}}></CardMedia>
+            <Typography> ${item.price} per pound</Typography>
+            
+            <Typography>{item.item}</Typography>
+            
+            
+            <Typography>{item.quantity} lbs</Typography>
         
         
-        </div>
-        <div>
-        <h3>
-            Subtotal: ${subTotal}
-        </h3>
-        </div>
+
+
+        
+        
+        
+        
+        <Typography variant='p'>
+            Total: ${subTotal}
+        </Typography>
+            </CardContent>
+        </Card>
         </>
     )
 }
