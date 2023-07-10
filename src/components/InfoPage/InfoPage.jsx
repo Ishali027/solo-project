@@ -32,17 +32,16 @@ const ordersList = useSelector(store => store.orderReducer)
 
   return (
     <>
-    {/* <div className="container"> */}
-      {/* <h1 style={{textAlign: "center"}}>Admin</h1> */}
-      <Typography variant="h1" component="div" textAlign="center">
+    <div className="container">
+      <Typography variant="h2" component="div" textAlign="center">
         
           Order List
         
       </Typography>
       <Grid container >
-      <Card sx={{maxWidth: 900, mx: 70, my: 5, backgroundColor: "brown", color: "white"}}>
+      <Card sx={{display: "flex", justifyContent: "center", backgroundColor: "brown", color: "white"}}>
       <table>
-        <CardContent>
+        <CardContent sx={{alignContent: "center"}}>
               <thead>
                 <tr>
 
@@ -67,7 +66,7 @@ const ordersList = useSelector(store => store.orderReducer)
                   </th>
                   <br></br>
                   <th>
-                    Total
+                    Order-Total
                   </th>
                   <br></br>
                   <th>
@@ -88,14 +87,11 @@ const ordersList = useSelector(store => store.orderReducer)
               {
         ordersList.map((order, i ) => (
           <tr key={i}>
-          {/* // Step 1: make this look better
-          // render more columns please */}
-          
-            {/* {JSON.stringify(order)} */}
+        
           <td>
             
               {order.customer_name}
-        
+          
           
           </td>
           <br></br>
@@ -131,7 +127,6 @@ const ordersList = useSelector(store => store.orderReducer)
           <Button sx={{backgroundColor: "grey", color: "white"}} onClick={() => updateOrder(order.order_id)}>Completed</Button>
 
           </td>
-          {/* <br></br> */}
 
           <td>
           <Button sx={{backgroundColor: "grey", color: "white"}} onClick={() => deleteOrder(order.order_id)}>Delete</Button>
@@ -147,9 +142,9 @@ const ordersList = useSelector(store => store.orderReducer)
       
      
       </Card></Grid>
-    {/* </div> */}
+    </div>
 
-      
+
     </>
   );
 }

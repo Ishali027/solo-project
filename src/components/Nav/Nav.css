@@ -1,6 +1,6 @@
 .nav {
   /* flex box layout */
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
   align-items: center;
 
@@ -16,13 +16,10 @@
 }
 
 .nav-title {
-  font-size: 38px;
+  font-size: 23px;
   font-weight: 700;
   color: #f2f2f2;
-  padding-left: 900px;
   margin: 0;
-  text-align: center;
-
 }
 
 .navLink {
@@ -30,10 +27,11 @@
   color: #f2f2f2;
   background-color:brown;
   /* background-color: #aab000; */
-  text-align: center;
+  /* text-align: center; */
   padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
+  /* float: right; */
 
   /* these last two make the logout button in
   the nav bar look like another link */
